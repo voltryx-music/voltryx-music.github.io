@@ -1,18 +1,18 @@
-// Deterministic vector artwork; no tracking, autoplay or external scripts.
+// Decorative, deterministic signal linework. No audio or tracking.
 const lines = document.getElementById('signal-lines');
-for (let row = 0; row < 66; row++) {
-  let d = '';
-  for (let col = 0; col <= 150; col++) {
-    const x = 45 + col * 3.4;
-    const position = (x - 300) / 210;
-    const envelope = Math.exp(-position * position * 3.5);
-    const amplitude = Math.sin(col / 10 + row / 8) * 39 + Math.cos(col / 19 - row / 11) * 30;
-    const y = 105 + row * 4.8 + amplitude * envelope;
-    d += `${col ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)} `;
+if (lines) {
+  for (let row = 0; row < 12; row++) {
+    let d = '';
+    for (let x = 0; x <= 1200; x += 4) {
+      const envelope = Math.sin(x / 1200 * Math.PI) ** 2;
+      const y = 28 + row * 10 + Math.sin(x / 52 + row * .27) * 23 * envelope;
+      d += `${x ? 'L' : 'M'}${x},${y.toFixed(2)} `;
+    }
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('opacity', String(.28 + row / 18));
+    lines.appendChild(path);
   }
-  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  path.setAttribute('d', d);
-  path.setAttribute('opacity', String(.4 + Math.sin(row / 66 * Math.PI) * .6));
-  lines.appendChild(path);
 }
-document.getElementById('year').textContent = new Date().getFullYear();
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();

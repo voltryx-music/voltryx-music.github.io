@@ -18,9 +18,10 @@ The local CNAME retains that domain as a migration reference.
 
 ## Content
 
-Music and social links are retained from the existing site. Release illustrations
-are abstract design studies rather than official cover art. Amyboard and software
+Music and social links are retained from the existing site. Amyboard and software
 entries are placeholders pending project details; no downloads are claimed.
 
 No build step, backend, analytics, cookies or embedded players are required.
 Fonts load from Google Fonts with system fallbacks.
+
+
