@@ -4,3 +4,5 @@
 @media(max-width:370px){.header nav{gap:13px}.intro-detail{display:block}.jump{margin-top:15px}.intro h1{font-size:76px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
+
+.socials{padding-bottom:72px}.social-platforms>a{grid-template-columns:1fr 28px}@media(max-width:700px){.socials{padding-bottom:50px}.social-platforms>a>svg{grid-row:auto}}
